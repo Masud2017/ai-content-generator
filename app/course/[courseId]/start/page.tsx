@@ -67,7 +67,7 @@ const CourseStart = ({ params }: CourseStartProps) => {
         <h2 className="font-medium text-lg bg-primary p-4 text-white">
           {course?.courseOutput.topic}
         </h2>
-        <div>
+        <div style = {{"overflow": "auto","height": "100vh"}}>
           {course?.courseOutput.chapters.map((chapter, index) => (
             <div
               key={index}
