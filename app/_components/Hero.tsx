@@ -16,7 +16,7 @@ const Hero = () => {
           <GradientTextAnimation title="Introducting AI Course Generator" />
           <WordPullUp
             className="text-4xl font-bold tracking-[-0.02em] text-black md:text-7xl md:leading-[5rem] dark:text-white"
-            words="AI Course Generator"
+            words="Scholastic AI Course Generator"
           />
 
           <p className="mt-10 sm:text-xl/relaxed">
