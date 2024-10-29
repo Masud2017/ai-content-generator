@@ -3,6 +3,11 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { BaseEnvironment } from "./BaseEnvironment";
 
+import { getFirestore } from "firebase/firestore";
+
+
+
+
 const env = new BaseEnvironment();
 
 const firebaseConfig = {
@@ -18,4 +23,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+
 export const firebaseStorage = getStorage(app);
+export const fireStoreClient = getFirestore(app);

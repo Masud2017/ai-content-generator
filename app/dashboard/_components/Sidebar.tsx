@@ -1,14 +1,40 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { navList } from "../_constants/navList";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Progress } from "@/components/ui/progress";
 import { UserCourseListContext } from "@/app/_context/UserCourseList.context";
 import WordRotate from "@/components/ui/word-rotate";
+import { fireStoreClient } from "@/configs/firebase.config";
+import { getDoc, doc, Firestore } from "firebase/firestore"; 
+import {useUser} from "@clerk/nextjs";
+import {useState} from "react";
+
 
 const Sidebar = () => {
+  const { isSignedIn, user, isLoaded } = useUser();
+  const [generationLimit, setGenerationLimit] = useState(0);
+
+  useEffect(()=> {
+    (async function(){
+      let limit = await getCourseGenerationLimit();
+      setGenerationLimit(limit);
+    })();
+  }, [generationLimit])
+
+  const getCourseGenerationLimit = async ()=> {
+    
+    let username:string = user?.emailAddresses[0].emailAddress || "";
+
+    let user_plan_doc = await getDoc(doc(fireStoreClient,"user_plans", username));
+    if (user_plan_doc.exists()) {
+      let data = user_plan_doc.data();
+      return data["limit"]
+    }
+  }
+
   const path = usePathname();
   const { userCourseList } = useContext(UserCourseListContext);
   // console.log("User Context Courses", userCourseList);
@@ -38,9 +64,9 @@ const Sidebar = () => {
       </ul>
 
       <div className="absolute bottom-10 w-[80%]">
-        <Progress value={(userCourseList.length / 5) * 100} />
+        <Progress value={(userCourseList.length / generationLimit) * 100} />
         <h2 className="text-sm my-2">
-          {userCourseList.length} out of 5 Courses created
+          {userCourseList.length} out of {generationLimit} Courses created
         </h2>
         <Link href="/upgrade">
           <h2 className="text-xs text-gray-500">

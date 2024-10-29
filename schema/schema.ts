@@ -29,3 +29,12 @@ export const CourseChapters = pgTable("courseChapters", {
   content: json("content").notNull(),
   videoId: varchar("videoId").notNull(),
 });
+
+
+
+export const UserPlan = pgTable("userPlan", {
+  id: serial("id").primaryKey(),
+  username: varchar("username").notNull(),
+  plan: integer("plan").notNull(), // 0 -> basic and 1 -> lifetime
+  limit: integer("limit").notNull(), // for basic = 1, for lifetime = 20
+});
