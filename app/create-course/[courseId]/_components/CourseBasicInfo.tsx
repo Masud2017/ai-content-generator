@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { uploadFilesToFirebase } from "../_utils/uploadFilesToFirebase";
 import { CourseType } from "@/types/types";
 import Link from "next/link";
+import { Icon } from "@radix-ui/react-select";
+import { DownloadIcon } from "@radix-ui/react-icons";
 
 type CourseBasicInfoProps = {
   courseInfo: CourseType | null;
@@ -60,6 +62,9 @@ const CourseBasicInfo = ({
           {!edit && (
             <Link href={`/course/${courseInfo?.courseId}/start`}>
               <Button className="w-full mt-5">Start</Button>
+              <Button className="w-full mt-5"><DownloadIcon style = {{"marginRight": ".4rem"}}/> Download this project</Button>
+              
+
             </Link>
           )}
         </div>
