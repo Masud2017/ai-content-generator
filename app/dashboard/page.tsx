@@ -4,7 +4,7 @@ import UserCourseList from "./_components/UserCourseList";
 import { useUser } from '@clerk/clerk-react'
 
 
-const Page = () => {
+const page = () => {
   const { isSignedIn, user, isLoaded } = useUser()
   return (
     <div>
@@ -14,4 +14,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default page;
