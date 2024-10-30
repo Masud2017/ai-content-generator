@@ -17,7 +17,7 @@ export class PdfService {
      * @returns pdf file - Binary array
      */
     async getPdfFile() {
-        const browser = await puppeteer.launch({headless : false});
+        const browser = await puppeteer.launch({headless : true});
         var merger = new PDFMerger();
 
         const page = await browser.newPage();
