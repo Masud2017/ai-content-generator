@@ -1,6 +1,5 @@
 import puppeteer from 'puppeteer';
 import PDFMerger from 'pdf-merger-js';
-
 export class PdfService {
     private name:string = "";
     private courseId:string = "";
@@ -10,7 +9,7 @@ export class PdfService {
     constructor(name:string, courseId:string) {
         this.name = name;
         this.courseId = courseId;
-        this.baseUrl = "http://localhost:3000/course/"
+        this.baseUrl = process.env.BASE_URL+"/course/" 
     }
   
     /**
