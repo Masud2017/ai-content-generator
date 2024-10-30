@@ -62,7 +62,7 @@ const CourseBasicInfo = ({
           {!edit && (
             <Link href={`/course/${courseInfo?.courseId}/start`}>
               <Button className="w-full mt-5">Start</Button>
-              <Button className="w-full mt-5"><DownloadIcon style = {{"marginRight": ".4rem"}}/> Download this project</Button>
+              <Link href={`/download_course/${courseInfo?.courseId}`}><Button className="w-full mt-5"><DownloadIcon style = {{"marginRight": ".4rem"}}/> Download this project</Button></Link>
               
 
             </Link>

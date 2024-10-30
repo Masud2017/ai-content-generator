@@ -5,6 +5,8 @@ import { ny } from "@/lib/utils";
 import { HowItWorks } from "./_components/HowItWorks";
 import { AICourseText } from "./_components/AICourseText";
 
+import Footer from "./_components/Footer";
+
 export default function Home() {
   return (
     <div>
@@ -19,6 +21,8 @@ export default function Home() {
           "[mask-image:radial-gradient(700px_circle_at_center,white,transparent)]"
         )}
       />
+
+      <Footer/>
     </div>
   );
 }
