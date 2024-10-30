@@ -6,7 +6,7 @@ const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/
 
 
 
-const serviceAccount: ServiceAcount = {
+const serviceAccount = {
     authProviderX509CertUrl: process.env.auth_provider_x509_cert_url || '',
     authUri: process.env.auth_uri || '',
     clientEmail: process.env.client_email || '',
