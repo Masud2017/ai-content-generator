@@ -129,7 +129,6 @@ const Page = ()=> {
                 <Text className ="block mb-2">Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</Text>
                 <Text className ="block mb-2">The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.</Text>
 
-                // updatedable
                 <Heading className="mt-4 mb-3 font-bold sm:text-3xl " mb="2" size="4">Delete Your Personal Data</Heading>
 
                 <Text className = "block mb-2">You have the right to delete or request that We assist in deleting the Personal Data that We have collected about You.</Text>
