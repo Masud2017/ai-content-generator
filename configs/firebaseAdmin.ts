@@ -12,7 +12,7 @@ const serviceAccount = {
     clientEmail: process.env.client_email || '',
     clientId: process.env.client_id || '',
     clientX509CertUrl: process.env.client_x509_cert_url || '',
-    privateKey: Buffer.from(process.env.private_key,'base64').toString('ascii') || '',
+    privateKey: Buffer.from(process.env.private_key,'base64').toString('ascii').replace(/\\n/g, '\n') || '',
     privateKeyId: process.env.private_key_id || '',
     projectId: process.env.project_id || '',
     tokenUri: process.env.token_uri || '',
