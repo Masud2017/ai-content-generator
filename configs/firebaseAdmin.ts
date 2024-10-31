@@ -12,7 +12,7 @@ const serviceAccount = {
     clientEmail: process.env.client_email || '',
     clientId: process.env.client_id || '',
     clientX509CertUrl: process.env.client_x509_cert_url || '',
-    privateKey: process.env.private_key || '',
+    privateKey: Buffer.from(process.env.private_key,'base64').toString('ascii') || '',
     privateKeyId: process.env.private_key_id || '',
     projectId: process.env.project_id || '',
     tokenUri: process.env.token_uri || '',
@@ -21,6 +21,7 @@ const serviceAccount = {
   };
   
 
+//   new Buffer(process.env.PRIVATE_KEY, 'base64').toString('ascii')
 console.log("Size of app :  "+getApps().length);
 if (getApps().length == 0) {
     initializeApp({
