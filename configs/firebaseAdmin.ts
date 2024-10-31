@@ -12,7 +12,7 @@ const serviceAccount = {
     clientEmail: process.env.client_email || '',
     clientId: process.env.client_id || '',
     clientX509CertUrl: process.env.client_x509_cert_url || '',
-    privateKey: process.env.private_key.replace(/\\n/g, '\n') || '',
+    privateKey: (process.env.private_key || '').replace(/\\n/g, '\n'),
     privateKeyId: process.env.private_key_id || '',
     projectId: process.env.project_id || '',
     tokenUri: process.env.token_uri || '',
