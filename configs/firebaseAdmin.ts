@@ -24,8 +24,8 @@ const serviceAccount = {
 console.log("Size of app :  "+getApps().length);
 if (getApps().length == 0) {
     initializeApp({
-        credential: cert("google.json")
-        // credential : cert(serviceAccount)
+        // credential: cert("google.json")
+        credential : cert(serviceAccount)
     });
 }
 
