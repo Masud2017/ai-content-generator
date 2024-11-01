@@ -26,7 +26,8 @@
     "@radix-ui/react-tooltip": "^1.1.2",
     "@radix-ui/themes": "^3.1.4",
     "axios": "^1.7.7",
-    "chrome-aws-lambda": "^10.1.0",
+    "chrome-aws-lambda": "^6",
+
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cobe": "^0.6.3",
@@ -36,14 +37,15 @@
     "framer-motion": "^11.5.4",
     "next": "14.2.7",
     "pdf-merger-js": "^5.1.2",
-    "puppeteer": "^23.6.1",
+    "puppeteer": "^16.2.0",
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^9.0.1",
     "react-spring": "^9.7.4",
     "react-youtube": "^10.1.0",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "puppeteer-core": "^6"
   },
   "devDependencies": {
     "@types/node": "^20",
