@@ -42,7 +42,9 @@
     "react-spring": "^9.7.4",
     "react-youtube": "^10.1.0",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "@sparticuz/chromium-min": "130.0.0",
+    "puppeteer-core":"23.6.1"
   },
   "devDependencies": {
     "@types/node": "^20",
