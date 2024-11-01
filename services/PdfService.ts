@@ -1,10 +1,14 @@
-import puppeteer from 'puppeteer';
+// import puppeteer from 'puppeteer';
 import PDFMerger from 'pdf-merger-js';
+import chromium from "@sparticuz/chromium-min";
+import puppeteer from "puppeteer-core";
 export class PdfService {
     private name:string = "";
     private courseId:string = "";
     private htmlPageList:Uint8Array[] = [];
     private baseUrl = "";
+    private chromiumPack = "https://drive.google.com/file/d/1H5ukzFESUK_iBhXVzbtUEO9YTjQLywuY/view?usp=sharing";
+
     
     constructor(name:string, courseId:string) {
         this.name = name;
@@ -17,7 +21,12 @@ export class PdfService {
      * @returns pdf file - Binary array
      */
     async getPdfFile() {
-        const browser = await puppeteer.launch({headless : true});
+        const browser = await puppeteer.launch({headless : false,
+            args: chromium.args,
+            // See https://www.npmjs.com/package/@sparticuz/chromium#running-locally--headlessheadful-mode for local executable path 
+            executablePath: await chromium.executablePath("chromium-pack"),
+
+        });
         var merger = new PDFMerger();
 
         const page = await browser.newPage();
