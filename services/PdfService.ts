@@ -21,7 +21,7 @@ export class PdfService {
      * @returns pdf file - Binary array
      */
     async getPdfFile() {
-        const browser = await puppeteer.launch({headless : false,
+        const browser = await puppeteer.launch({headless : true,
             args: chromium.args,
             // args:  ['--no-sandbox', "--disabled-setupid-sandbox"],
             // See https://www.npmjs.com/package/@sparticuz/chromium#running-locally--headlessheadful-mode for local executable path 
