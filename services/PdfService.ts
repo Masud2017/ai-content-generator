@@ -1,8 +1,20 @@
 // import puppeteer from 'puppeteer';
 import PDFMerger from 'pdf-merger-js';
 // import chromium from "@sparticuz/chromium-min";
-import chromium from "chrome-aws-lambda";
-import puppeteer from "puppeteer-core";
+let chromium = {
+    defaultViewport:"",
+    args: null,
+    executablePath:"",
+    headless: true
+};
+let puppeteer:any;
+if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+    chromium = require("chrome-aws-lambda");
+  puppeteer = require("puppeteer-core");   
+} else {
+    puppeteer = require("puppeteer");
+}
+
 export class PdfService {
     private name:string = "";
     private courseId:string = "";
