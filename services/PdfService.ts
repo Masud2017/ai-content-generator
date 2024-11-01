@@ -1,6 +1,7 @@
 // import puppeteer from 'puppeteer';
 import PDFMerger from 'pdf-merger-js';
-import chromium from "@sparticuz/chromium-min";
+// import chromium from "@sparticuz/chromium-min";
+import chromium from "chrome-aws-lambda";
 import puppeteer from "puppeteer-core";
 export class PdfService {
     private name:string = "";
@@ -21,11 +22,11 @@ export class PdfService {
      * @returns pdf file - Binary array
      */
     async getPdfFile() {
-        const browser = await puppeteer.launch({headless : true,
-            args: chromium.args,
-            // args:  ['--no-sandbox', "--disabled-setupid-sandbox"],
-            // See https://www.npmjs.com/package/@sparticuz/chromium#running-locally--headlessheadful-mode for local executable path 
-            executablePath: await chromium.executablePath("https://chromium-pack-b.s3.eu-north-1.amazonaws.com/chromium-v130.0.0-pack.tar"),
+        const browser = await puppeteer.launch({ args: chromium.args,
+            defaultViewport: chromium.defaultViewport,
+            executablePath: await chromium.executablePath,
+            headless: chromium.headless,
+            ignoreHTTPSErrors: true,
 
         });
         var merger = new PDFMerger();
