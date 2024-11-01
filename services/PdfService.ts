@@ -7,7 +7,7 @@ export class PdfService {
     private courseId:string = "";
     private htmlPageList:Uint8Array[] = [];
     private baseUrl = "";
-    private chromiumPack = "https://drive.google.com/file/d/1H5ukzFESUK_iBhXVzbtUEO9YTjQLywuY/view?usp=sharing";
+    private chromiumPack = "https://chromium-pack-b.s3.eu-north-1.amazonaws.com/chromium-v130.0.0-pack.tar";
 
     
     constructor(name:string, courseId:string) {
@@ -23,8 +23,9 @@ export class PdfService {
     async getPdfFile() {
         const browser = await puppeteer.launch({headless : false,
             args: chromium.args,
+            // args:  ['--no-sandbox', "--disabled-setupid-sandbox"],
             // See https://www.npmjs.com/package/@sparticuz/chromium#running-locally--headlessheadful-mode for local executable path 
-            executablePath: await chromium.executablePath("chromium-pack"),
+            executablePath: await chromium.executablePath("https://chromium-pack-b.s3.eu-north-1.amazonaws.com/chromium-v130.0.0-pack.tar"),
 
         });
         var merger = new PDFMerger();
