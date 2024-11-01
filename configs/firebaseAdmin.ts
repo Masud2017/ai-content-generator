@@ -5,7 +5,7 @@ const { initializeApp, applicationDefault, cert,getApps,ServiceAcount } = requir
 const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
 
 
-let {private_key} = JSON.parse(process.env!.private_key || "{'private_key':'data'}");
+let private_key = JSON.parse(process.env!.private_key || "{'private_key':'data'}")["private_key"];
 // private_key = private_key!.replace(/\\n/g, '\n');
 const serviceAccount = {
     authProviderX509CertUrl: process.env.auth_provider_x509_cert_url || '',
